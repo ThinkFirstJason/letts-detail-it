@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Letts Detail It</title>
+<meta name="description" content="Letts Detail It: owner-operated drop-off auto detailing in Kalamazoo, MI. Interior and exterior detailing, paint correction, ceramic coating and headlight restoration.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+  /* Layout: a working shop, not a showroom. Warm off-white paper and charcoal carry the page;
+     a muted racing green is the one brand color, used for actions and a few solid bands.
+     Headings use Archivo's expanded width for a stamped, automotive feel. */
+  :root{
+    --ink:#151916;        /* body text, dark surfaces */
+    --char:#1C221E;       /* dark section ground */
+    --char-2:#262E29;     /* raised surface on dark */
+    --paper:#F4F2ED;      /* warm off-white ground */
+    --white:#FFFFFF;
+    --green:#2F5B45;      /* primary: 7.6:1 on white, 7.0:1 on paper */
+    --green-deep:#22432F; /* hover / solid band */
+    --sage:#A8C5B1;       /* green accent on dark: 9.4:1 on char */
+    --muted:#585F5A;      /* secondary text on light: 6.3:1 on paper */
+    --stone:#B9C0BB;      /* secondary text on dark: 9.0:1 on char */
+    --line:#DAD6CC;
+    --line-dark:#36403A;
+    --font:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --g:clamp(16px,5vw,64px);
+    --max:1240px;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--green);outline-offset:3px}
+  .dark :focus-visible{outline-color:var(--sage)}
+  .wrap{max-width:var(--max);margin-inline:auto;padding-left:max(var(--g),env(safe-area-inset-left,0px));padding-right:max(var(--g),env(safe-area-inset-right,0px))}
+
+  h1,h2,h3{font-stretch:125%;font-weight:800;line-height:1.02;letter-spacing:-0.02em;text-wrap:balance}
+  h2{font-size:clamp(30px,4.4vw,54px)}
+  h3{font-size:19px;line-height:1.2;letter-spacing:-0.01em}
+  p{text-wrap:pretty}
+  .kicker{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+  .dark .kicker{color:var(--sage)}
+  .lede{font-size:19px;line-height:1.55;color:var(--muted);max-width:58ch}
+  .dark .lede{color:var(--stone)}
+  .sec{padding:clamp(72px,10vw,128px) 0}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:clamp(36px,5vw,56px)}
+  @media (max-width:860px){.sec-head{grid-template-columns:1fr}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;font:700 16px/1 var(--font);text-decoration:none;border:2px solid transparent;border-radius:6px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
+  .btn svg{width:18px;height:18px;flex:none}
+  .btn-green{background:var(--green);color:var(--white)}
+  .btn-green:hover{background:var(--green-deep)}
+  .btn-ghost{color:var(--white);border-color:rgba(255,255,255,.55)}
+  .btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+  .btn-ink{border-color:var(--ink);color:var(--ink)}
+  .btn-ink:hover{background:var(--ink);color:var(--white)}
+  .btn-white{background:var(--white);color:var(--green-deep)}
+  .btn-white:hover{background:var(--paper)}
+
+  /* ---------- header ---------- */
+  .top{position:sticky;top:0;z-index:50;background:rgba(244,242,237,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+  .top .wrap{display:flex;align-items:center;gap:32px;height:72px}
+  .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+  .brand b{font-stretch:125%;font-weight:900;font-size:19px;letter-spacing:.01em}
+  .brand span{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .nav{display:flex;gap:28px;margin-left:auto}
+  .nav a{font-size:15px;font-weight:600;text-decoration:none;color:var(--ink);padding:6px 0;border-bottom:2px solid transparent}
+  .nav a:hover{border-color:var(--green)}
+  .top-cta{display:flex;align-items:center;gap:18px}
+  .top-cta .tel{font-weight:700;font-size:15px;text-decoration:none;font-variant-numeric:tabular-nums}
+  .top-cta .tel:hover{color:var(--green)}
+  .top .btn{min-height:44px;padding:0 18px;font-size:15px}
+  @media (max-width:1040px){.nav{display:none}.top-cta{margin-left:auto}}
+  @media (max-width:560px){.top-cta .tel{display:none}.brand b{font-size:16px}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;background:var(--char);color:var(--white);overflow:hidden}
+  .hero-img{position:absolute;inset:0}
+  .hero-img img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+  .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,21,18,.92) 0%,rgba(17,21,18,.72) 42%,rgba(17,21,18,.18) 78%),linear-gradient(0deg,rgba(17,21,18,.85) 0%,rgba(17,21,18,0) 38%)}
+  .hero-body{position:relative;padding-top:clamp(96px,14vw,168px);padding-bottom:56px}
+  .hero h1{font-size:clamp(40px,6.6vw,88px);max-width:12ch;letter-spacing:-0.025em}
+  .hero p{font-size:clamp(18px,1.6vw,20px);line-height:1.55;color:#D3D9D4;max-width:48ch;margin-top:26px}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .facts{position:relative;border-top:1px solid rgba(255,255,255,.16);margin-top:clamp(64px,9vw,112px)}
+  .facts ul{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .facts li{padding:22px 24px 4px 0;font-size:15px;color:#C9D0CB;line-height:1.4}
+  .facts li + li{padding-left:24px;border-left:1px solid rgba(255,255,255,.16)}
+  .facts strong{display:block;font-stretch:125%;font-size:26px;font-weight:800;color:var(--white);letter-spacing:-0.01em;margin-bottom:4px}
+  @media (max-width:860px){.facts ul{grid-template-columns:repeat(2,minmax(0,1fr))}.facts li:nth-child(3){padding-left:0;border-left:0}.facts li{padding-bottom:18px}}
+
+  /* ---------- area strip ---------- */
+  .area{background:var(--green-deep);color:#E3ECE6;font-size:15px}
+  .area .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding-top:16px;padding-bottom:16px;align-items:center}
+  .area b{color:var(--white);font-weight:700;margin-right:4px}
+  .area span{white-space:nowrap}
+
+  /* ---------- work ---------- */
+  .pairs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .pair{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px 10px 0;overflow:hidden}
+  .pair.wide{grid-column:1/-1}
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .shot{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:6px;background:#ddd}
+  .wide .shot{aspect-ratio:2/1}
+  .shot img{width:100%;height:100%;object-fit:cover}
+  .tag{position:absolute;left:10px;top:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border-radius:4px;background:rgba(21,25,22,.82);color:var(--white)}
+  .tag.after{background:var(--green)}
+  .pair figcaption{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:16px 6px 18px;font-size:15px;color:var(--muted)}
+  .pair figcaption b{color:var(--ink);font-size:16px}
+  @media (max-width:760px){.pairs{grid-template-columns:1fr}.wide .shots{grid-template-columns:1fr}.pair figcaption{flex-direction:column;gap:2px}}
+
+  /* ---------- services ---------- */
+  .dark{background:var(--char);color:var(--white)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .svc{background:var(--char-2);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+  .svc .ph{aspect-ratio:3/2;overflow:hidden}
+  .svc .ph img{width:100%;height:100%;object-fit:cover}
+  .svc .bd{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .svc h3{color:var(--white)}
+  .svc p{color:var(--stone);font-size:16px;margin-top:10px;flex:1}
+  .svc .price{margin-top:18px;padding-top:14px;border-top:1px solid var(--line-dark);font-size:14px;color:var(--stone)}
+  .svc .price b{color:var(--sage);font-size:18px;font-weight:800;font-stretch:115%;margin-left:4px}
+  .svc.rides{background:var(--green);justify-content:space-between}
+  .svc.rides .bd{padding:28px;justify-content:space-between}
+  .svc.rides p{color:#DDE8E1;flex:0}
+  .rides ul{list-style:none;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .rides li{font-stretch:115%;font-weight:700;font-size:20px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.22)}
+  @media (max-width:1000px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:640px){.svc-grid{grid-template-columns:1fr}}
+
+  /* ---------- pricing ---------- */
+  .price-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .menu{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:8px 28px 12px}
+  .menu-h{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0 16px;border-bottom:2px solid var(--ink)}
+  .menu-h h3{font-size:22px}
+  .menu-h span{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+  .row{display:grid;grid-template-columns:auto 1fr auto;gap:4px 16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .name{font-weight:800;font-size:18px;font-stretch:112%}
+  .row .desc{grid-column:2/3;grid-row:2;font-size:15px;color:var(--muted)}
+  .row .amt{grid-row:1/3;grid-column:3;text-align:right;font-size:13px;color:var(--muted);line-height:1.3}
+  .row .amt b{display:block;font-size:24px;font-weight:800;font-stretch:115%;color:var(--ink);font-variant-numeric:tabular-nums}
+  .meter{grid-row:1/3;display:flex;gap:3px;align-items:flex-end;height:28px;width:30px}
+  .meter i{display:block;width:8px;border-radius:2px;background:var(--line)}
+  .meter i:nth-child(1){height:40%}.meter i:nth-child(2){height:70%}.meter i:nth-child(3){height:100%}
+  .m1 i:nth-child(1),.m2 i:nth-child(-n+2),.m3 i{background:#8A6F4E}
+  .packs{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .pack{border:1px solid var(--line);border-radius:10px;padding:24px;background:var(--paper)}
+  .pack h3{font-size:20px}
+  .pack p{font-size:15px;color:var(--muted);margin-top:6px}
+  .pack .amt{margin-top:18px;font-size:13px;color:var(--muted)}
+  .pack .amt b{font-size:28px;font-weight:800;font-stretch:115%;color:var(--green);margin-left:4px}
+  .packs-wrap{margin-top:28px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:28px}
+  .packs-wrap > p{color:var(--muted);font-size:15px;margin-top:4px}
+  .packs-wrap .packs{margin-top:20px}
+  .extras{margin-top:28px;display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:stretch}
+  .extras .photo{border-radius:10px;overflow:hidden;min-height:260px}
+  .extras .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+  .extras .menu{display:flex;flex-direction:column;justify-content:center}
+  .note{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;padding:22px 28px;border-radius:10px;background:#E8E5DD}
+  .note p{max-width:68ch;font-size:16px}
+  @media (max-width:900px){.price-cols,.extras{grid-template-columns:1fr}.packs{grid-template-columns:1fr}}
+  @media (max-width:520px){.menu{padding:4px 18px 8px}.packs-wrap{padding:22px 18px}.row .name{font-size:17px}.row .amt b{font-size:21px}}
+
+  /* ---------- process ---------- */
+  .process{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,88px);align-items:center}
+  .process .photo{border-radius:10px;overflow:hidden;aspect-ratio:4/5}
+  .process .photo img{width:100%;height:100%;object-fit:cover}
+  .steps{list-style:none;margin-top:36px;counter-reset:s}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:56px 1fr;gap:0 18px;padding:24px 0;border-top:1px solid var(--line)}
+  .steps li:last-child{border-bottom:1px solid var(--line)}
+  .steps li::before{content:counter(s);grid-row:1/3;width:44px;height:44px;border-radius:50%;border:2px solid var(--green);color:var(--green);display:grid;place-items:center;font-weight:800;font-size:18px}
+  .steps h3{font-size:20px;margin-top:9px}
+  .steps p{color:var(--muted);margin-top:6px}
+  @media (max-width:860px){.process{grid-template-columns:1fr}.process .photo{aspect-ratio:3/2}}
+
+  /* ---------- about ---------- */
+  .about{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:start}
+  .portrait{position:relative}
+  .portrait img{border-radius:10px;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;width:100%}
+  .portrait figcaption{margin-top:12px;font-size:14px;color:var(--muted)}
+  .about-copy p{font-size:18px;line-height:1.65;margin-top:20px;max-width:60ch}
+  .about-copy p:first-of-type{margin-top:28px}
+  .creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+  .creds span{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper)}
+  .sign{margin-top:32px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr}.portrait{max-width:420px}}
+
+  /* ---------- reviews ---------- */
+  .reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .review{background:var(--char-2);border-radius:10px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+  .review blockquote{font-size:19px;line-height:1.5;color:#E9EEEA}
+  .review .stars{color:var(--sage);letter-spacing:3px;font-size:15px;margin-bottom:14px}
+  .review footer{font-size:15px;color:var(--stone)}
+  .review footer b{color:var(--white);display:block}
+  @media (max-width:900px){.reviews{grid-template-columns:1fr}}
+
+  /* ---------- faq ---------- */
+  .faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(32px,6vw,88px)}
+  .faq details{border-top:1px solid var(--line)}
+  .faq details:last-child{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding:22px 0;font-weight:700;font-size:18px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"";flex:none;width:12px;height:12px;border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+  .faq details p{padding:0 0 24px;color:var(--muted);max-width:62ch}
+  @media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+  /* ---------- final cta + footer ---------- */
+  .cta{position:relative;color:var(--white);background:var(--green-deep);overflow:hidden}
+  .cta .bg{position:absolute;inset:0}
+  .cta .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:.28;mix-blend-mode:luminosity}
+  .cta .wrap{position:relative;padding-top:clamp(72px,9vw,120px);padding-bottom:clamp(72px,9vw,120px)}
+  .cta h2{font-size:clamp(34px,5vw,64px);max-width:16ch}
+  .cta p{color:#DCE7E0;font-size:19px;margin-top:20px;max-width:46ch}
+  .cta .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+
+  .foot{background:var(--ink);color:var(--stone);font-size:15px;padding:64px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+  .foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,1fr));gap:40px}
+  .foot img{width:180px;height:auto}
+  .foot h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--white);margin-bottom:14px}
+  .foot ul{list-style:none;display:grid;gap:8px}
+  .foot a{text-decoration:none}
+  .foot a:hover{color:var(--white)}
+  .foot .small{margin-top:56px;padding-top:24px;border-top:1px solid #2C332E;font-size:13.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  @media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+
+  /* mobile call bar */
+  .callbar{display:none}
+  @media (max-width:700px){
+    .callbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(21,25,22,.96);border-top:1px solid #2C332E}
+    .callbar .btn{min-height:48px;font-size:15px;padding:0 12px}
+    .foot{padding-bottom:calc(112px + env(safe-area-inset-bottom,0px))}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Letts Detail It, home">
+      <b>LETTS DETAIL IT</b>
+      <span>Kalamazoo, MI</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Our work</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="top-cta">
+      <a class="tel" href="tel:+12693916489">269-391-6489</a>
+      <a class="btn btn-green" href="https://app.urable.com/virtual-shop/dELS7iTUs4XKvO4nT8Uv" target="_blank" rel="noopener">Book online</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero-img"><img src="img/hero.jpg" alt="A car covered in wash foam inside a detailing bay" fetchpriority="high"></div>
+    <div class="wrap hero-body">
+      <h1 id="hero-h">Bring it in rough. Pick it up clean.</h1>
+      <p>Letts Detail It is a small drop-off shop in Kalamazoo. Kry, the owner, details every vehicle that comes through the door, inside and out, from a quick freshen-up to full paint correction and ceramic coating.</p>
+      <div class="actions">
+        <a class="btn btn-green" href="https://app.urable.com/virtual-shop/dELS7iTUs4XKvO4nT8Uv" target="_blank" rel="noopener">Book a drop-off</a>
+        <a class="btn btn-ghost" href="tel:+12693916489">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>
+          Call 269-391-6489
+        </a>
+      </div>
+      <div class="facts">
+        <ul>
+          <li><strong>500+</strong>vehicles detailed</li>
+          <li><strong>5.0</strong>average customer rating</li>
+          <li><strong>1 owner</strong>doing the work, every time</li>
+          <li><strong>Insured</strong>licensed and family owned</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="area" aria-label="Service area">
+    <div class="wrap">
+      <b>Customers come from</b>
+      <span>Kalamazoo</span><span>Portage</span><span>Oshtemo</span><span>Plainwell</span><span>Allegan</span><span>Mattawan</span><span>Paw Paw</span><span>Gobles</span>
+    </div>
+  </div>
+
+  <section class="sec" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">From the shop</span>
+          <h2 id="work-h">Real customer vehicles, before and after.</h2>
+        </div>
+        <p class="lede">These came in looking like this and left looking like that. Phone photos, taken in the shop on the day, with no filters and no editing.</p>
+      </div>
+
+      <div class="pairs">
+        <figure class="pair">
+          <div class="shots">
+            <div class="shot"><img src="img/ba-paint-before.jpg" alt="Black sedan rear quarter panel covered in water spots and grime" loading="lazy"><span class="tag">Before</span></div>
+            <div class="shot"><img src="img/ba-paint-after.jpg" alt="The same panel after detailing, glossy enough to reflect the street" loading="lazy"><span class="tag after">After</span></div>
+          </div>
+          <figcaption><b>Exterior detail</b>Hand wash, decon, gloss</figcaption>
+        </figure>
+        <figure class="pair">
+          <div class="shots">
+            <div class="shot"><img src="img/ba-wheel-before.jpg" alt="Black aftermarket wheel dull with brake dust" loading="lazy"><span class="tag">Before</span></div>
+            <div class="shot"><img src="img/ba-wheel-after.jpg" alt="The same wheel cleaned and shining" loading="lazy"><span class="tag after">After</span></div>
+          </div>
+          <figcaption><b>Wheel restoration</b>Brake dust gone, finish back</figcaption>
+        </figure>
+        <figure class="pair">
+          <div class="shots">
+            <div class="shot"><img src="img/ba-cabin-before.jpg" alt="Truck passenger footwell with a muddy, salt-stained floor mat" loading="lazy"><span class="tag">Before</span></div>
+            <div class="shot"><img src="img/ba-cabin-after.jpg" alt="The same footwell cleaned, mat looking new" loading="lazy"><span class="tag after">After</span></div>
+          </div>
+          <figcaption><b>Interior deep clean</b>Pickup, passenger side</figcaption>
+        </figure>
+        <figure class="pair">
+          <div class="shots">
+            <div class="shot"><img src="img/ba-mats-before.jpg" alt="Driver footwell with a dirt-caked floor mat" loading="lazy"><span class="tag">Before</span></div>
+            <div class="shot"><img src="img/ba-mats-after.jpg" alt="Driver footwell after cleaning, mat and sill plate clean" loading="lazy"><span class="tag after">After</span></div>
+          </div>
+          <figcaption><b>Floor mat restoration</b>Same truck, driver side</figcaption>
+        </figure>
+        <figure class="pair wide">
+          <div class="shots">
+            <div class="shot"><img src="img/ba-rear-before.jpg" alt="Rear cabin with dirty rubber mats and clutter on the floor" loading="lazy"><span class="tag">Before</span></div>
+            <div class="shot"><img src="img/ba-rear-after.jpg" alt="Rear cabin after detailing, clean carpet and leather seats" loading="lazy"><span class="tag after">After</span></div>
+          </div>
+          <figcaption><b>Interior revival</b>Back seat and floor, start to finish</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">Services</span>
+          <h2 id="svc-h">What the shop does.</h2>
+        </div>
+        <p class="lede">Every job uses professional, pH-balanced products, the two-bucket wash method and microfiber only. Nothing that'll scratch your paint to save ten minutes.</p>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc">
+          <div class="ph"><img src="img/interior.jpg" alt="Carpet extractor pulling dirt out of a vehicle floor" loading="lazy"></div>
+          <div class="bd">
+            <h3>Interior detail</h3>
+            <p>A deep vacuum, steam cleaning, and leather and fabric work for the stains a vacuum won't touch. Pet hair included. Kry has seen worse.</p>
+            <div class="price">Starting at <b>$50</b></div>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="ph"><img src="img/exterior.jpg" alt="Pressure washing a foamed-up car in a wash bay" loading="lazy"></div>
+          <div class="bd">
+            <h3>Exterior detail</h3>
+            <p>A paint-safe hand wash, then decontamination to pull embedded grit out of the clear coat. Tires and trim get dressed before it goes home.</p>
+            <div class="price">Starting at <b>$50</b></div>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="ph"><img src="img/polish.jpg" alt="Detailer machine-polishing a red car door" loading="lazy" style="object-position:50% 35%"></div>
+          <div class="bd">
+            <h3>Paint correction</h3>
+            <p>Machine polishing that takes out swirl marks and light scratches, so the paint looks deep and clear again instead of hazy in the sun.</p>
+            <div class="price">Heavy correction from <b>$350</b></div>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="ph"><img src="img/ceramic.jpg" alt="Water beading up on coated paint" loading="lazy"></div>
+          <div class="bd">
+            <h3>Ceramic coating</h3>
+            <p>Long-term protection bonded to the paint. Water beads up and rolls off, dirt has a harder time sticking, and washing gets a lot easier.</p>
+            <div class="price">Starting at <b>$1,500</b></div>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="ph"><img src="img/headlight.jpg" alt="Close-up of a clear, restored headlight" loading="lazy" style="object-position:50% 55%"></div>
+          <div class="bd">
+            <h3>Headlight restoration</h3>
+            <p>Yellowed, cloudy lenses brought back to clear. It looks better, and you'll actually see the road at night.</p>
+            <div class="price">Both headlights <b>$100</b></div>
+          </div>
+        </article>
+        <article class="svc rides">
+          <div class="bd">
+            <h3>Not just cars</h3>
+            <p>If it has seats or paint, bring it in.</p>
+            <ul>
+              <li>Cars</li><li>Trucks</li><li>Semis</li><li>Motorcycles</li><li>ATVs</li><li>Boats</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="pricing" aria-labelledby="price-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">Pricing</span>
+          <h2 id="price-h">Priced by how rough it is.</h2>
+        </div>
+        <p class="lede">Pick the tier that sounds like your vehicle. Kry looks it over at drop-off and confirms the final price before any work starts. Bigger vehicles and heavier messes cost more, and you'll know the number up front.</p>
+      </div>
+
+      <div class="price-cols">
+        <div class="menu">
+          <div class="menu-h"><h3>Interior</h3><span>Condition</span></div>
+          <div class="row"><span class="meter m1" aria-hidden="true"><i></i><i></i><i></i></span><span class="name">Just Dusty</span><span class="desc">Vacuum and wipe-down</span><span class="amt">from<b>$50</b></span></div>
+          <div class="row"><span class="meter m2" aria-hidden="true"><i></i><i></i><i></i></span><span class="name">Seen Some Life</span><span class="desc">Standard interior detail</span><span class="amt">from<b>$200</b></span></div>
+          <div class="row"><span class="meter m3" aria-hidden="true"><i></i><i></i><i></i></span><span class="name">Lived-In</span><span class="desc">Heavy soiling, pet hair, deep restoration</span><span class="amt">from<b>$350</b></span></div>
+        </div>
+        <div class="menu">
+          <div class="menu-h"><h3>Exterior</h3><span>Condition</span></div>
+          <div class="row"><span class="meter m1" aria-hidden="true"><i></i><i></i><i></i></span><span class="name">Rinse &amp; Repeat</span><span class="desc">Basic wash</span><span class="amt">from<b>$50</b></span></div>
+          <div class="row"><span class="meter m2" aria-hidden="true"><i></i><i></i><i></i></span><span class="name">Road Weary</span><span class="desc">Standard exterior detail</span><span class="amt">from<b>$250</b></span></div>
+          <div class="row"><span class="meter m3" aria-hidden="true"><i></i><i></i><i></i></span><span class="name">Hard Miles</span><span class="desc">Heavy paint correction, no coating</span><span class="amt">from<b>$350</b></span></div>
+        </div>
+      </div>
+
+      <div class="packs-wrap">
+        <h3>Inside and out</h3>
+        <p>Want both done? These packages pair the matching interior and exterior tiers.</p>
+        <div class="packs">
+          <div class="pack"><h3>The Freshen Up</h3><p>Just Dusty + Rinse &amp; Repeat</p><div class="amt">from<b>$100</b></div></div>
+          <div class="pack"><h3>The Comeback</h3><p>Seen Some Life + Road Weary</p><div class="amt">from<b>$400</b></div></div>
+          <div class="pack"><h3>The Restoration</h3><p>Lived-In + Hard Miles</p><div class="amt">from<b>$700</b></div></div>
+        </div>
+      </div>
+
+      <div class="extras">
+        <div class="photo"><img src="img/inside-wipe.jpg" alt="Detailer cleaning a car's interior by the dashboard" loading="lazy"></div>
+        <div class="menu">
+          <div class="menu-h"><h3>Add-ons and specialty</h3></div>
+          <div class="row"><span></span><span class="name">Headlight restoration</span><span class="desc">Both headlights</span><span class="amt"><b>$100</b></span></div>
+          <div class="row"><span></span><span class="name">Ceramic coating</span><span class="desc">Long-term paint protection</span><span class="amt">from<b>$1,500</b></span></div>
+          <div class="row"><span></span><span class="name">Biohazard and odor removal</span><span class="desc">Every case is different</span><span class="amt"><b>Quote</b></span></div>
+        </div>
+      </div>
+
+      <div class="note">
+        <p>Not sure which tier fits? Call and describe it. You'll get a straight answer, and nobody will try to upsell you.</p>
+        <a class="btn btn-ink" href="tel:+12693916489">Call 269-391-6489</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-labelledby="how-h">
+    <div class="wrap process">
+      <div class="photo"><img src="img/foam-bay.jpg" alt="Detailer washing a foamed-up sports car in the bay" loading="lazy" style="object-position:50% 60%"></div>
+      <div>
+        <span class="kicker">How it works</span>
+        <h2 id="how-h">Drop it off, go about your day.</h2>
+        <ol class="steps">
+          <li><h3>Book online or call</h3><p>Picking a service and a time online takes about a minute. If you'd rather talk it through, call and Kry will set it up.</p></li>
+          <li><h3>Drop it at the shop</h3><p>Most full details take 3 to 5 hours. Paint correction and ceramic coating can take the whole day. You'll know the timeline when you book.</p></li>
+          <li><h3>Pick it up</h3><p>Come back to a vehicle that's ready for photos. A photo-ready finish is guaranteed.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec about" id="about" aria-labelledby="about-h">
+    <div class="wrap about-grid">
+      <figure class="portrait">
+        <img src="img/kry.jpg" alt="Kry, owner of Letts Detail It" loading="lazy">
+        <figcaption>Kry, owner and operator</figcaption>
+      </figure>
+      <div class="about-copy">
+        <span class="kicker">Who's doing the work</span>
+        <h2 id="about-h">Hi, I'm Kry.</h2>
+        <p>Letts Detail It started because I liked making cars look their best, and it turned into a business I'm proud to run here in Kalamazoo.</p>
+        <p>I've always been hands-on with cars, from paint work to the small stuff most people miss, and I bring that same care to every vehicle in my shop. Whether you need a quick refresh or a full restoration, I treat your car like it's my own.</p>
+        <p>This isn't a chain. It's a local shop where you deal with me directly, every car gets my full attention, and the prices are honest. I don't take shortcuts or play upsell games.</p>
+        <div class="creds"><span>Family owned</span><span>Owner operated</span><span>Licensed and insured</span><span>Professional products</span></div>
+        <div class="sign">
+          <a class="btn btn-green" href="https://app.urable.com/virtual-shop/dELS7iTUs4XKvO4nT8Uv" target="_blank" rel="noopener">Book with Kry</a>
+          <a class="btn btn-ink" href="tel:+12693916489">Ask a question</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark" aria-labelledby="rev-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker">Reviews</span>
+          <h2 id="rev-h">What customers say.</h2>
+        </div>
+        <p class="lede">A 5.0 average across 500+ vehicles. Here are a few.</p>
+      </div>
+      <div class="reviews">
+        <figure class="review">
+          <div><div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>Truck looks brand new inside and out. Honestly couldn't believe the difference. Worth every penny.</blockquote></div>
+          <footer><b>Mike R.</b>Kalamazoo</footer>
+        </figure>
+        <figure class="review">
+          <div><div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>Best detail I've ever had. Dropped my car off in the morning and picked it up looking showroom-fresh. Fair pricing too.</blockquote></div>
+          <footer><b>Sarah T.</b>Plainwell</footer>
+        </figure>
+        <figure class="review">
+          <div><div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>Got the ceramic coating and the paint pops like never before. Water beads off like magic. Highly recommend.</blockquote></div>
+          <footer><b>Jason L.</b>Allegan</footer>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="kicker">FAQ</span>
+        <h2 id="faq-h">Questions people ask.</h2>
+        <p class="lede" style="margin-top:20px">Something else on your mind? Call <a href="tel:+12693916489" style="white-space:nowrap">269-391-6489</a>.</p>
+      </div>
+      <div>
+        <details open><summary>How long does a full detail take?</summary><p>Most interior and exterior details take 3 to 5 hours. Paint correction and ceramic coating can run a full day. You'll get a clear timeline when you book.</p></details>
+        <details><summary>Where are you located?</summary><p>It's a drop-off shop in the Kalamazoo area. Customers come from Portage, Oshtemo, Allegan, Plainwell, Gobles, Mattawan, Paw Paw and the rest of Southwest Michigan. Call 269-391-6489 for directions.</p></details>
+        <details><summary>How much will mine cost?</summary><p>The pricing above gives you starting points. Every vehicle gets inspected before work starts, and the final price depends on size and condition. Call for a quick, honest quote.</p></details>
+        <details><summary>Are the products safe for my paint and interior?</summary><p>Yes. Everything is professional grade and pH-balanced. The wash is two-bucket with microfiber only, and polishing is done carefully, never by hacking at the paint with a rotary.</p></details>
+        <details><summary>How often should I get it detailed?</summary><p>For a daily driver, a full detail every 3 to 4 months keeps it in good shape. With a ceramic coating you can go longer between details, and upkeep is easier.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-h">
+    <div class="bg"><img src="img/cta.jpg" alt="" loading="lazy"></div>
+    <div class="wrap">
+      <h2 id="cta-h">Your car's been patient. Get it booked in.</h2>
+      <p>Pick a time online, or call and talk it through with the person who'll be doing the work.</p>
+      <div class="actions">
+        <a class="btn btn-white" href="https://app.urable.com/virtual-shop/dELS7iTUs4XKvO4nT8Uv" target="_blank" rel="noopener">Book online</a>
+        <a class="btn btn-ghost" href="tel:+12693916489">Call 269-391-6489</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><img src="img/logo.png" alt="Letts Detail It logo" loading="lazy" width="180" height="138"></div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12693916489">269-391-6489</a></li>
+          <li><a href="https://app.urable.com/virtual-shop/dELS7iTUs4XKvO4nT8Uv" target="_blank" rel="noopener">Book online</a></li>
+          <li>Drop-off shop, Kalamazoo, MI</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Interior detail</a></li>
+          <li><a href="#services">Exterior detail</a></li>
+          <li><a href="#services">Paint correction</a></li>
+          <li><a href="#services">Ceramic coating</a></li>
+          <li><a href="#services">Headlight restoration</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service area</h4>
+        <ul>
+          <li>Kalamazoo and Portage</li>
+          <li>Oshtemo and Mattawan</li>
+          <li>Plainwell and Allegan</li>
+          <li>Paw Paw and Gobles</li>
+        </ul>
+      </div>
+    </div>
+    <div class="small">
+      <span>© 2026 Letts Detail It. Family owned and operated.</span>
+      <span>Licensed and insured</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-ghost" href="tel:+12693916489">Call</a>
+  <a class="btn btn-green" href="https://app.urable.com/virtual-shop/dELS7iTUs4XKvO4nT8Uv" target="_blank" rel="noopener">Book online</a>
+</div>
+
+</body>
+</html>
